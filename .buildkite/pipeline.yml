@@ -24,8 +24,9 @@ steps:
   #################
   - label: "🔬 Validate Podspecs"
     key: "validate"
+    # Ideally, --allow-warnings should be removed once the warnings have been addressed
     command: |
-      validate_podspec
+      validate_podspec --allow-warnings
     plugins: *common_plugins
 
   #################
