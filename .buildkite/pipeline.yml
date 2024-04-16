@@ -2,9 +2,11 @@
 common_params:
   plugins: &common_plugins
     - automattic/a8c-ci-toolkit#3.3.0
-  # Common environment values to use with the `env` key.
-  env: &common_env
-    IMAGE_ID: xcode-13
+
+agents:
+  queue: mac
+env:
+  IMAGE_ID: xcode-13
 
 # This is the default pipeline – it will build and test the app
 steps:
@@ -15,7 +17,6 @@ steps:
     key: "test"
     command: |
       build_and_test_pod
-    env: *common_env
     plugins: *common_plugins
 
   #################
@@ -25,7 +26,6 @@ steps:
     key: "validate"
     command: |
       validate_podspec
-    env: *common_env
     plugins: *common_plugins
 
   #################
@@ -35,7 +35,6 @@ steps:
     key: "lint"
     command: |
       lint_pod
-    env: *common_env
     plugins: *common_plugins
 
   #################
@@ -44,15 +43,12 @@ steps:
   - label: "⬆️ Publish Aztec Podspec"
     key: "publish-aztec"
     command: .buildkite/publish-aztec-pod.sh
-    env: *common_env
     plugins: *common_plugins
     depends_on:
       - "test"
       - "validate"
       - "lint"
     if: build.tag != null
-    agents:
-      queue: "mac"
 
   #################
   # Publish the Podspec (if we're building a tag)
@@ -60,12 +56,9 @@ steps:
   - label: "⬆️ Publish Editor Podspec"
     key: "publish-editor"
     command: .buildkite/publish-editor-pod.sh
-    env: *common_env
     plugins: *common_plugins
     depends_on:
       - "test"
       - "validate"
       - "lint"
     if: build.tag != null
-    agents:
-      queue: "mac"
