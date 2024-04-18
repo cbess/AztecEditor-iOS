@@ -50,7 +50,7 @@ open class HTMLAttachment: NSTextAttachment, RenderableAttachment  {
         self.rawHTML = rawHTML as String
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
     /// Extracts the root tag name from a given HTML string
     ///

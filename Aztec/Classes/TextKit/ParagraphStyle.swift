@@ -112,7 +112,7 @@ open class ParagraphStyle: NSMutableParagraphStyle, CustomReflectable {
         aCoder.encode(headerLevel, forKey: EncodingKeys.headerLevel.rawValue)
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
     override open func setParagraphStyle(_ baseParagraphStyle: NSParagraphStyle) {
         

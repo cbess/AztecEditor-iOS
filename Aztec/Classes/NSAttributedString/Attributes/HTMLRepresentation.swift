@@ -54,7 +54,7 @@ public class HTMLRepresentation: NSObject, NSSecureCoding {
         }
     }
 
-    public class var supportsSecureCoding: Bool { true }
+    open class var supportsSecureCoding: Bool { true }
 }
 
 
@@ -102,7 +102,7 @@ public class HTMLElementRepresentation: NSObject, CustomReflectable, NSSecureCod
         aCoder.encode(attributes, forKey: #keyPath(attributes))
     }
 
-    public class var supportsSecureCoding: Bool { true }
+    open class var supportsSecureCoding: Bool { true }
 
     // MARK: - CustomReflectable
 

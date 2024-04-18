@@ -31,7 +31,7 @@ class UnsupportedHTML: NSObject, NSSecureCoding {
         self.representations = representations
     }
 
-    class var supportsSecureCoding: Bool { true }
+    open class var supportsSecureCoding: Bool { true }
 }
 
 

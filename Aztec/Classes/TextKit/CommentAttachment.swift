@@ -48,7 +48,7 @@ open class CommentAttachment: NSTextAttachment, RenderableAttachment {
         aCoder.encode(text, forKey: Keys.text)
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
     // MARK: - NSTextAttachmentContainer
 

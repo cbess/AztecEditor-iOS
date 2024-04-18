@@ -157,7 +157,7 @@ open class MediaAttachment: NSTextAttachment {
         url = aDecoder.decodeObject(of: NSURL.self, forKey: EncodeKeys.url.rawValue) as? URL
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
     /// Required Initializer
     ///

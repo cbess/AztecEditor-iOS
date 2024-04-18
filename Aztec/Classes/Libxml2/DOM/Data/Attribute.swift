@@ -72,7 +72,7 @@ public class Attribute: NSObject, CustomReflectable, NSSecureCoding {
         }
     }
 
-    public class var supportsSecureCoding: Bool { true }
+    open class var supportsSecureCoding: Bool { true }
 
     // MARK: - Equatable
 

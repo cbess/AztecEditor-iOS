@@ -19,7 +19,7 @@ class Figcaption: ParagraphProperty {
         aCoder.encode(defaultFont, forKey: CodingKeys.defaultFont)
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 }
 
 private extension Figcaption {

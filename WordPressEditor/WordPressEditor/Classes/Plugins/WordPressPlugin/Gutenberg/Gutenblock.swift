@@ -11,6 +11,6 @@ class Gutenblock: ParagraphProperty {
         super.init(coder: aDecoder)
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
 }

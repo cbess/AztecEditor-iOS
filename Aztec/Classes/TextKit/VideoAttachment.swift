@@ -43,7 +43,7 @@ open class VideoAttachment: MediaAttachment {
         }
     }
 
-    override public class var supportsSecureCoding: Bool { true }
+    override open class var supportsSecureCoding: Bool { true }
 
     /// Required Initializer
     ///

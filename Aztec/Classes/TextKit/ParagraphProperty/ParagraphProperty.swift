@@ -19,7 +19,7 @@ open class ParagraphProperty: NSObject, NSSecureCoding {
     public func encode(with aCoder: NSCoder) {
     }
 
-    public class var supportsSecureCoding: Bool { true }
+    open class var supportsSecureCoding: Bool { true }
     
     static func ==(lhs: ParagraphProperty, rhs: ParagraphProperty) -> Bool {
         return lhs === rhs
