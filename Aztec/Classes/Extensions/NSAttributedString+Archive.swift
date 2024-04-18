@@ -11,7 +11,7 @@ extension NSAttributedString
     }
 
     static func unarchive(with data: Data) throws -> NSAttributedString? {
-        return try NSKeyedUnarchiver.unarchivedObject(ofClass: NSAttributedString.self, from: data)
+        return try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSAttributedString.self, HTMLRepresentation.self], from: data) as? NSAttributedString
     }
     
 }

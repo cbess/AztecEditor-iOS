@@ -74,6 +74,8 @@ open class ImageAttachment: MediaAttachment {
         aCoder.encode(size.rawValue, forKey: EncodeKeys.size.rawValue)
     }
 
+    override public class var supportsSecureCoding: Bool { true }
+
     private enum EncodeKeys: String {
         case alignment
         case size
