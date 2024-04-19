@@ -44,58 +44,46 @@ extension UIPasteboard {
         let identifier: String
 
         static let html: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.html.identifier
-                } else {
-                    kUTTypeHTML as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.html.identifier)
+            } else {
+                UTType(identifier: kUTTypeHTML as String)
+            }
         }()
         static let plainText: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.utf8PlainText.identifier
-                } else {
-                    kUTTypeUTF8PlainText as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.utf8PlainText.identifier)
+            } else {
+                UTType(identifier: kUTTypeUTF8PlainText as String)
+            }
         }()
         static let richText: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.text.identifier
-                } else {
-                    kUTTypeText as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.text.identifier)
+            } else {
+                UTType(identifier: kUTTypeText as String)
+            }
         }()
         static let RTFText: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.rtf.identifier
-                } else {
-                    kUTTypeRTF as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.rtf.identifier)
+            } else {
+                UTType(identifier: kUTTypeRTF as String)
+            }
         }()
         static let RTFDText: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.flatRTFD.identifier
-                } else {
-                    kUTTypeFlatRTFD as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.flatRTFD.identifier)
+            } else {
+                UTType(identifier: kUTTypeFlatRTFD as String)
+            }
         }()
         static let URL: UTType = {
-            UTType(identifier: {
-                if #available(iOS 14.0, *) {
-                    UniformTypeIdentifiers.UTType.url.identifier
-                } else {
-                    kUTTypeURL as String
-                }
-            }())
+            if #available(iOS 14.0, *) {
+                UTType(identifier: UniformTypeIdentifiers.UTType.url.identifier)
+            } else {
+                UTType(identifier: kUTTypeURL as String)
+            }
         }()
     }
 
