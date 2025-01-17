@@ -12,6 +12,9 @@ steps:
     key: test
     command: build_and_test_pod
     plugins: [$CI_TOOLKIT_PLUGIN]
+    notify:
+      - github_commit_status:
+          context: Unit Tests
 
   #################
   # Validate Podspecs
@@ -21,6 +24,9 @@ steps:
     # Ideally, --allow-warnings should be removed once the warnings have been addressed
     command: validate_podspec --patch-cocoapods --allow-warnings
     plugins: [$CI_TOOLKIT_PLUGIN]
+    notify:
+      - github_commit_status:
+          context: Validate Podspecs
 
   #################
   # Lint
@@ -29,6 +35,9 @@ steps:
     key: lint
     command: lint_pod
     plugins: [$CI_TOOLKIT_PLUGIN]
+    notify:
+      - github_commit_status:
+          context: Lint Pod
 
   #################
   # Publish the Podspec (if we're building a tag)
@@ -42,6 +51,9 @@ steps:
       - validate
       - lint
     if: build.tag != null
+    notify:
+      - github_commit_status:
+          context: Publish Aztec Podspec
 
   #################
   # Publish the Podspec (if we're building a tag)
@@ -55,3 +67,6 @@ steps:
       - validate
       - lint
     if: build.tag != null
+    notify:
+      - github_commit_status:
+          context: Publish WordPress-Editor Podspec
