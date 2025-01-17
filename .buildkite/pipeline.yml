@@ -8,8 +8,8 @@ steps:
   #################
   # Build and Test
   #################
-  - label: "🧪 Build and Test"
-    key: "test"
+  - label: 🧪 Build and Test
+    key: test
     command: |
       build_and_test_pod
     plugins: [$CI_TOOLKIT_PLUGIN]
@@ -17,8 +17,8 @@ steps:
   #################
   # Validate Podspecs
   #################
-  - label: "🔬 Validate Podspecs"
-    key: "validate"
+  - label: 🔬 Validate Podspecs
+    key: validate
     # Ideally, --allow-warnings should be removed once the warnings have been addressed
     command: |
       validate_podspec --patch-cocoapods --allow-warnings
@@ -27,8 +27,8 @@ steps:
   #################
   # Lint
   #################
-  - label: "🧹 Lint"
-    key: "lint"
+  - label: 🧹 Lint
+    key: lint
     command: |
       lint_pod
     plugins: [$CI_TOOLKIT_PLUGIN]
@@ -36,25 +36,25 @@ steps:
   #################
   # Publish the Podspec (if we're building a tag)
   #################
-  - label: "⬆️ Publish Aztec Podspec"
-    key: "publish-aztec"
+  - label: ⬆️ Publish Aztec Podspec
+    key: publish-aztec
     command: .buildkite/publish-aztec-pod.sh
     plugins: [$CI_TOOLKIT_PLUGIN]
     depends_on:
-      - "test"
-      - "validate"
-      - "lint"
+      - test
+      - validate
+      - lint
     if: build.tag != null
 
   #################
   # Publish the Podspec (if we're building a tag)
   #################
-  - label: "⬆️ Publish Editor Podspec"
-    key: "publish-editor"
+  - label: ⬆️ Publish Editor Podspec
+    key: publish-editor
     command: .buildkite/publish-editor-pod.sh
     plugins: [$CI_TOOLKIT_PLUGIN]
     depends_on:
-      - "test"
-      - "validate"
-      - "lint"
+      - test
+      - validate
+      - lint
     if: build.tag != null
