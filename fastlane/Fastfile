@@ -16,10 +16,9 @@ platform :ios do
       prelaunch_simulator: true,
       buildlog_path: File.join(__dir__, '.build', 'logs'),
       derived_data_path: File.join(__dir__, '.build', 'derived-data'),
+      device: TEST_DEVICE,
       ensure_devices_found: true
     }
-
-    shared_options[:device] = device.name unless is_ci
 
     run_tests(**shared_options, scheme: 'Aztec')
     run_tests(**shared_options, scheme: 'WordPressEditor')
