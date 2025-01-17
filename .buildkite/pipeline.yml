@@ -1,12 +1,7 @@
-# Nodes with values to reuse in the pipeline.
-common_params:
-  plugins: &common_plugins
-    - automattic/a8c-ci-toolkit#3.3.0
-
 agents:
   queue: mac
 env:
-  IMAGE_ID: xcode-15.3-v3
+  IMAGE_ID: $IMAGE_ID
 
 # This is the default pipeline – it will build and test the app
 steps:
@@ -17,7 +12,7 @@ steps:
     key: "test"
     command: |
       build_and_test_pod
-    plugins: *common_plugins
+    plugins: [$CI_TOOLKIT_PLUGIN]
 
   #################
   # Validate Podspecs
@@ -27,7 +22,7 @@ steps:
     # Ideally, --allow-warnings should be removed once the warnings have been addressed
     command: |
       validate_podspec --patch-cocoapods --allow-warnings
-    plugins: *common_plugins
+    plugins: [$CI_TOOLKIT_PLUGIN]
 
   #################
   # Lint
@@ -36,7 +31,7 @@ steps:
     key: "lint"
     command: |
       lint_pod
-    plugins: *common_plugins
+    plugins: [$CI_TOOLKIT_PLUGIN]
 
   #################
   # Publish the Podspec (if we're building a tag)
@@ -44,7 +39,7 @@ steps:
   - label: "⬆️ Publish Aztec Podspec"
     key: "publish-aztec"
     command: .buildkite/publish-aztec-pod.sh
-    plugins: *common_plugins
+    plugins: [$CI_TOOLKIT_PLUGIN]
     depends_on:
       - "test"
       - "validate"
@@ -57,7 +52,7 @@ steps:
   - label: "⬆️ Publish Editor Podspec"
     key: "publish-editor"
     command: .buildkite/publish-editor-pod.sh
-    plugins: *common_plugins
+    plugins: [$CI_TOOLKIT_PLUGIN]
     depends_on:
       - "test"
       - "validate"
