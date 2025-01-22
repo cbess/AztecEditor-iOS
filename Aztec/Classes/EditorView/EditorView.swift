@@ -41,18 +41,17 @@ public class EditorView: UIView {
             richTextView.contentOffset = newValue
         }
     }
-    
-    public var scrollIndicatorInsets: UIEdgeInsets {
+
+    public var horizontalScrollIndicatorInsets: UIEdgeInsets {
         get {
-            return activeView.scrollIndicatorInsets
+            return activeView.horizontalScrollIndicatorInsets
         }
-        
         set {
-            htmlTextView.scrollIndicatorInsets = newValue
-            richTextView.scrollIndicatorInsets = newValue
+            htmlTextView.horizontalScrollIndicatorInsets = newValue
+            richTextView.horizontalScrollIndicatorInsets = newValue
         }
     }
-    
+
     // MARK: - Editing Mode
     
     public enum EditMode {
@@ -100,8 +99,8 @@ public class EditorView: UIView {
     // MARK: - Initializers
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let htmlTextView = aDecoder.decodeObject(forKey: EditorView.htmlTextViewKey) as? UITextView,
-            let richTextView = aDecoder.decodeObject(forKey: EditorView.richTextViewKey) as? TextView else {
+        guard let htmlTextView = aDecoder.decodeObject(of: UITextView.self, forKey: EditorView.htmlTextViewKey),
+              let richTextView = aDecoder.decodeObject(of: TextView.self, forKey: EditorView.richTextViewKey) else {
                 return nil
         }
         
