@@ -3,10 +3,6 @@
 
 import PackageDescription
 
-let swiftSettings: [SwiftSetting] = [
-    .define("SPM"),
-]
-
 let package = Package(
     name: "WordPress-AztecEditor-iOS",
     platforms: [.iOS(.v11)],
@@ -24,8 +20,7 @@ let package = Package(
             path: "Aztec",
             resources: [
                 .process("Assets"),
-            ],
-            swiftSettings: swiftSettings
+            ]
         ),
         .testTarget(
             name: "AztecTests",
@@ -33,8 +28,7 @@ let package = Package(
             path: "AztecTests",
             resources: [
                 .process("Resources"),
-            ],
-            swiftSettings: swiftSettings
+            ]
         ),
         .target(
             name: "WordPressEditor",
@@ -43,8 +37,7 @@ let package = Package(
             ],
             path: "WordPressEditor/WordPressEditor",
             resources: [
-            ],
-            swiftSettings: swiftSettings
+            ]
         ),
         .testTarget(
             name: "WordPressEditorTests",
@@ -55,8 +48,7 @@ let package = Package(
             path: "WordPressEditor/WordPressEditorTests",
             resources: [
                 .process("Resources"),
-            ],
-            swiftSettings: swiftSettings
+            ]
         )
     ],
     swiftLanguageVersions: [.v5]

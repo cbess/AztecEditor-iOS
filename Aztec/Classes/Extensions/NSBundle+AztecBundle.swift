@@ -2,7 +2,7 @@ import Foundation
 
 extension Bundle {
     @objc public class var aztecBundle: Bundle {
-#if SPM
+#if SWIFT_PACKAGE
         return .module
 #else
         let defaultBundle = Bundle(for: EditorView.self)
