@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+* Added support for alternate bullet styles per level for ordered and unordered lists [#1409]
 
 ### Bug Fixes
 
