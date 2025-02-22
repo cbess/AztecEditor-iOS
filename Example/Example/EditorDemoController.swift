@@ -258,7 +258,7 @@ class EditorDemoController: UIViewController {
         rightMargin -= view.safeAreaInsets.right
 
         scrollInsets.right = -rightMargin
-        editorView.scrollIndicatorInsets = scrollInsets
+        editorView.horizontalScrollIndicatorInsets = scrollInsets
     }
 
     func updateTitleHeight() {

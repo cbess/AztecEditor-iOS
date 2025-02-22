@@ -238,9 +238,9 @@ private extension LayoutManager {
                 }
             }
 
-            var indentLevel = 1
-            // Determine indentation level, if needed. The indentation level is only used by the standard list style
-            if list.style == .unordered, listIndentStyle == .standard {
+            var indentLevel: Int?
+            // Determine indentation level, if needed. The indentation level is only determined for the standard list style
+            if listIndentStyle == .standard {
                 // only get the width of the first level once
                 if firstLevelWidth == nil {
                     firstLevelWidth = paragraphStyle.indentToFirst(TextList.self)
@@ -248,9 +248,7 @@ private extension LayoutManager {
 
                 // calculate current indent level
                 let indentWidth = paragraphStyle.indentToLast(TextList.self)
-                if let firstLevelWidth = firstLevelWidth {
-                    indentLevel = Int(indentWidth / firstLevelWidth)
-                }
+                indentLevel = Int(indentWidth / firstLevelWidth!)
             }
 
             markerNumber += start
