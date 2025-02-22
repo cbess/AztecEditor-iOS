@@ -8,7 +8,7 @@ class TextViewStub: Aztec.TextView {
     // MARK: - Sample HTML Retrieval
     
     static func loadSampleHTML() -> String {
-        guard let path = Bundle(for: self).path(forResource: "content", ofType: "html"),
+        guard let path = Bundle.aztecTestsBundle.path(forResource: "content", ofType: "html"),
             let sample = try? String(contentsOfFile: path)
             else {
                 fatalError()
@@ -17,7 +17,7 @@ class TextViewStub: Aztec.TextView {
         return sample
     }
     
-    init(withHTML html: String? = nil, font: UIFont = .systemFont(ofSize: 14)) {
+    init(withHTML html: String? = nil, font: UIFont = .systemFont(ofSize: 14), pasteboard: UIPasteboard = .forTesting) {
         super.init(
             defaultFont: font,
             defaultMissingImage: UIImage())
@@ -28,6 +28,8 @@ class TextViewStub: Aztec.TextView {
         if let html = html {
             setHTML(html)
         }
+
+        self.pasteboard = pasteboard
     }
     
     convenience init(withSampleHTML: Bool) {

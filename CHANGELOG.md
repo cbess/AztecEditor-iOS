@@ -48,16 +48,26 @@ _None._
 
 _None._
 
+## 1.20.0
 
-## [1.19.9](https://github.com/wordpress-mobile/AztecEditor-iOS/releases/tag/1.19.9)
+### Internal Changes
 
-### Breaking Changes
+* Added SPM support [#1379, #1406].
 
-_None._
+## 1.19.11
 
-### New Features
+### Bug Fixes
 
-_None._
+* Improve Mark formatting. [#1352]
+
+## 1.19.10
+
+### Bug Fixes
+
+* Fixed crash when attempting to render Gutenberg comment. [#1383]
+* Fixed crash when underlining text with special glyphs. [#1384]
+
+## 1.19.9
 
 ### Bug Fixes
 
@@ -65,7 +75,7 @@ _None._
 
 ### Internal Changes
 
-- Add this changelog file. [#1365]
+* Add this changelog file. [#1365]
 
 ---
 
@@ -126,15 +136,15 @@ _Versions below this precede the Keep a Changelog-inspired formatting._
 
 1.16.0
 -----
- * Improve display of ordered lists with large bullet numbers
- * Fix bug where links with text that had a mix of Latin and non-Latin characters were getting split.
+* Improve display of ordered lists with large bullet numbers
+* Fix bug where links with text that had a mix of Latin and non-Latin characters were getting split.
 
 1.15.0
 -----
- * Allow to use headers fonts without bold effect applied
- * Support for multilevel blockquotes
- * Fix presentation of placeholder images in dark mode.
- * Fix bug that didn't set default text color when changing text color
+* Allow to use headers fonts without bold effect applied
+* Support for multilevel blockquotes
+* Fix presentation of placeholder images in dark mode.
+* Fix bug that didn't set default text color when changing text color
 
 1.14.1
 -----
